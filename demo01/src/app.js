@@ -1,7 +1,7 @@
 import moment from 'moment';
-import React from 'react';
-import ReactDOM from 'react-dom'; 
-import {Button} from 'antd' ; 
+//import React from 'react';
+//import ReactDOM from 'react-dom'; 
+//import {Button} from 'antd' ; 
  
 var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
 console.log(rightNow);

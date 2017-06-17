@@ -1,17 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
+  devtool: 'cheap-module-source-map',
   context: path.resolve(__dirname, './src'),
   entry: {
     app: './app.js',
     other: './other.js' ,
-    vendor: ['react', 'react-dom','moment'],
+    //vendor: ['react', 'react-dom','moment'],
   },
   output: {
     path: path.resolve(__dirname, './dist/assets'),
     filename: '[name].bundle.js',
-    publicPath: '/assets',                          // New
+    publicPath: '/assets', 
+    sourceMapFilename: '[name].map'                         // New
   },
   module: {
     rules: [
@@ -26,7 +29,9 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './src'),  // New
+    port: 3000,
+    host: 'localhost',
+    contentBase: path.resolve(__dirname, './public'),  // New
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -34,5 +39,13 @@ module.exports = {
       filename: 'commons.js',
       minChunks: 2,
     }),
+    // new HtmlWebpackPlugin({
+    //    template: './index.html',
+    //    filename: path.resolve(__dirname, './public/index.html')
+    // }),
+    new HtmlWebpackPlugin({
+       template: './index.html',
+       filename: path.resolve(__dirname, './public/index.html'),
+    })
   ],
 };
