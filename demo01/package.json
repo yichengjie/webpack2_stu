@@ -1,8 +1,0 @@
-{
-    "name":"demo01",
-    "version":"1.0.0",
-    "scripts":{
-        "build": "../node_modules/.bin/webpack",
-        "dev": "../node_modules/.bin/webpack-dev-server"
-    }
-}

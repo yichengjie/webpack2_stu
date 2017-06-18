@@ -30,8 +30,10 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    //所有来自 dist/目录的文件都做 gzip 压缩和提供为服务
+    compress:true,
     host: 'localhost',
-    contentBase: path.resolve(__dirname, './public'),  // New
+    contentBase: [path.resolve(__dirname, './dist/assets'),path.resolve(__dirname, './public')],  // New
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -45,7 +47,8 @@ module.exports = {
     // }),
     new HtmlWebpackPlugin({
        template: './index.html',
-       filename: path.resolve(__dirname, './public/index.html'),
+       filename:'index.html'
+       //filename: path.resolve(__dirname, './public/index.html'),
     })
   ],
 };
