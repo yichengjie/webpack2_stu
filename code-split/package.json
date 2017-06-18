@@ -1,0 +1,9 @@
+{
+    "name":"code-split",
+    "description": "code split study",
+    "version":"1.0.0",
+    "scripts": {
+        "build":"../node_modules/.bin/webpack",
+        "build2":"../node_modules/.bin/webpack --config webpack.config.js"
+    }
+}

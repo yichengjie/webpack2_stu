@@ -4,6 +4,7 @@
     "scripts":{
         "build": "../node_modules/.bin/webpack",
         "dev": "../node_modules/.bin/webpack-dev-server",
-        "dev2": "../node_modules/.bin/webpack-dev-server --config ./webpack.config2.js"
+        "dev2": "../node_modules/.bin/webpack-dev-server --config ./webpack.config2.js",
+        "dev3": "../node_modules/.bin/webpack-dev-server --config ./webpack.config3.js"
     }
 }

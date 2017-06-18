@@ -1,0 +1,9 @@
+{
+    "name":"muti-condition",
+    "version":"1.0.0",
+    "scripts": {
+        "build":"../node_modules/.bin/webpack  --env=dev",
+        "dev": "../node_modules/.bin/webpack --env=dev --progress --profile --colors",
+        "dist": "../node_modules/.bin/webpack --env=prod --progress --profile --colors"  
+    }
+}
