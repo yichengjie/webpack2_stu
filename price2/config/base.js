@@ -37,7 +37,9 @@ module.exports = function() {
            name: "vendor",
            minChunks: 2,
         }),
-        new ExtractTextPlugin({filename:"style.[contenthash:16].css"}),
+        new ExtractTextPlugin({
+          filename:"style.[contenthash:16].css"
+        }),
         new HtmlWebpackPlugin({
           template: './index.html',
           filename:'index.html',
