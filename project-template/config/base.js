@@ -8,7 +8,6 @@ module.exports = function() {
       context: path.resolve(__dirname, '../src'),
       entry:{
         index:'./entrys/index.jsx' ,
-        other:'./entrys/other.jsx' ,
         vendor: ['react','react-dom'], 
       },
       module: {
@@ -39,13 +38,6 @@ module.exports = function() {
           hash:true,
           chunks:['index','vendor']   // 这个模板对应上面那个节点
         }),
-        new HtmlWebpackPlugin({
-          template: './index.html',
-          filename:'other.html',
-          inject:'body',
-          hash:true,
-          chunks:['other','vendor']   // 这个模板对应上面那个节点
-        })
       ],
     };
 } 
