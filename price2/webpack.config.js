@@ -4,23 +4,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   devtool: 'nosources-source-map',
-  //devtool:'eval',
   context: path.resolve(__dirname, './src'),
-  entry: {
-    app: './app.js',
-    //vendor: ['react', 'react-dom','moment'],
+  entry:{
+    index:'./index.jsx'  
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
     publicPath: '/', 
-    sourceMapFilename: '[name].map'                         // New
+    sourceMapFilename: '[name].map'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,exclude: [/node_modules/],
-        use: [{loader: 'babel-loader',options: { presets: ['es2015'] },}],
+        test: /\.jsx?$/,exclude: [/node_modules/],
+        use: [{loader: 'babel-loader'}],
       },
       {
         test: /\.css$/,
@@ -41,10 +39,6 @@ module.exports = {
       filename: 'commons.js',
       minChunks: 2,
     }),
-    // new HtmlWebpackPlugin({
-    //    template: './index.html',
-    //    filename: path.resolve(__dirname, './public/index.html')
-    // }),
     new HtmlWebpackPlugin({
        template: './index.html',
        filename:'index.html'
