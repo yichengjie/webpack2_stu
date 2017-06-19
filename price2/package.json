@@ -1,0 +1,9 @@
+{
+    "name": "price2.0",
+    "version": "1.0.0",
+    "description": "price2.0 update to webpack2.0",
+    "scripts": {
+        "dev":"../node_modules/.bin/webpack-dev-server",
+        "build":"../node_modules/.bin/webpack"
+    }
+}
