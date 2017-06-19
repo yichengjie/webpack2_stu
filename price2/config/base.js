@@ -8,8 +8,8 @@ module.exports = function() {
       context: path.resolve(__dirname, '../src'),
       entry:{
         index:'./entrys/index.jsx' ,
-        other:'./entrys/other.jsx' ,
-        vendor: ['react','react-dom'], 
+        edit:'./entrys/edit.jsx' ,
+        vendor: ['react','react-dom','moment'], 
       },
       module: {
         rules: [
@@ -22,6 +22,12 @@ module.exports = function() {
             use: ExtractTextPlugin.extract({
               fallback: "style-loader",
               use: "css-loader"
+            })
+          },
+          { test: /\.less$/, 
+            use:ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: "css-loader!less-loader"
             })
           },
         ],
@@ -41,10 +47,10 @@ module.exports = function() {
         }),
         new HtmlWebpackPlugin({
           template: './index.html',
-          filename:'other.html',
+          filename:'edit.html',
           inject:'body',
           hash:true,
-          chunks:['other','vendor']   // 这个模板对应上面那个节点
+          chunks:['edit','vendor']   // 这个模板对应上面那个节点
         })
       ],
     };

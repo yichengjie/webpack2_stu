@@ -4,7 +4,7 @@ let path = require('path') ;
 
 module.exports = function(env) {
     return webpackMerge(commonConfig(), {
-        devtool: 'cheap-module-source-map',
+        devtool: 'cheap-module-eval-source-map',
         output: {
             filename: '[name].bundle.js',
             publicPath: '/',

@@ -8,5 +8,10 @@
     // 详情查看 https://tc39.github.io/process-document/
     "react"
     // 转译React组件为JS代码
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
+    ["import",{ "libraryName": "antd"}]
   ]
 }
