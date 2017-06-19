@@ -1,8 +1,7 @@
 import React,{Component} from 'react' ;
 import {Button,Icon,notification} from 'antd';
 import FlightInfoContainer from './FlightInfoContainer.jsx' ;
-import {queryAllCategory4} from './api/CommonApi.js' ;
-
+import {queryAllCategory4,getContextPath} from './api/CommonApi.js' ;
 
 class Category4Query extends Component{
     constructor(props){
@@ -34,6 +33,12 @@ class Category4Query extends Component{
         this.setState({list}) ;
         notification.success({message:'删除成功!'}) ;
     }
+    //点击新建时
+    hadleToNewAddUI(){
+        let contextPath = getContextPath() ;
+        let url = contextPath + 'edit.html' ;
+        window.location.href = url ;
+    }
     renderListItem(item,key){
         return (
             <div className="category-section-row mb20" key={key}>
@@ -51,9 +56,7 @@ class Category4Query extends Component{
         return (
             <div className="category-container">
                 <div className="category-section-row">
-                    <Button type="primary">
-                        新建
-                    </Button>
+                    <Button type="primary" onClick={this.hadleToNewAddUI}>新建</Button>
                 </div>
                 {this.renderList()}
             </div>

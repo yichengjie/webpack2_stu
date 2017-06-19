@@ -240,8 +240,13 @@ export function queryCategory4ById(id){
     }) ;
 }
 
+export function getContextPath(){
+    return '' ;
+}
+
 
 export default {
     queryAllCategory4,
-    queryCategory4ById
+    queryCategory4ById,
+    getContextPath,
 } ;

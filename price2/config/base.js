@@ -9,7 +9,7 @@ module.exports = function() {
       entry:{
         index:'./entrys/index.jsx' ,
         edit:'./entrys/edit.jsx' ,
-        vendor: ['react','react-dom','moment'], 
+        vendor: ['react','react-dom','moment','lodash'], 
       },
       module: {
         rules: [
@@ -37,7 +37,7 @@ module.exports = function() {
            name: "vendor",
            minChunks: 2,
         }),
-        new ExtractTextPlugin("styles.[chunkhash].css"),
+        new ExtractTextPlugin({filename:"style.[contenthash:16].css"}),
         new HtmlWebpackPlugin({
           template: './index.html',
           filename:'index.html',

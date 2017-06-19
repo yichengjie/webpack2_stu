@@ -9,7 +9,7 @@ appNode.id = 'app' ;
 document.body.appendChild(appNode) ;
 
 ReactDOM.render(
-    <Siderbar>
+    <Siderbar current='rule-category' openKeys ={['rule']}>
        <Category4Edit />
     </Siderbar>,
     appNode

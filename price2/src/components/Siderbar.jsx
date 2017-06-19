@@ -5,11 +5,15 @@ const SubMenu = Menu.SubMenu ;
 const defaultOpenKey = "rule" ;
 
 class Siderbar extends React.Component {
+  static defaultProps = {
+     current:'',
+     openKeys:[]
+  } ;
   constructor(props){
      super(props) ;
      this.state = {
-       current:'',
-       openKeys:[],
+       current:props.current,
+       openKeys:props.openKeys,
        collapsed: false,
        mode: 'inline',
      }
