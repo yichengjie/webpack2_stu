@@ -3,7 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'nosources-source-map',
+  //devtool:'eval',
   context: path.resolve(__dirname, './src'),
   entry: {
     app: './app.js',
