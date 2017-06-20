@@ -1,0 +1,12 @@
+{
+    "name": "price2.0",
+    "version": "1.0.0",
+    "description": "price2.0 update to webpack2.0",
+    "scripts": {
+        "clean":"node ./config/clean.js",
+        "copy":"node ./config/cp-static",
+        "dev": "../node_modules/.bin/webpack-dev-server --env=dev --progress --profile --colors",
+        "build": "npm run clean && npm run copy && ../node_modules/.bin/webpack --env=prod --progress --profile --colors",
+        "test":"../node_modules/.bin/jest"
+    }
+}
