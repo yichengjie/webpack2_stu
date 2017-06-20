@@ -3,6 +3,7 @@ import FlightInfoContainer from './FlightInfoContainer.jsx' ;
 import moment from 'moment';
 import {queryCategory4ById,getContextPath} from './api/CommonApi.js' ;
 import _ from 'lodash' ;
+import {getQueryString} from '../common.js' ;
 
 import {Select,Input,Radio,Checkbox,Icon,Button,
     TimePicker,message,Tag} from 'antd';
@@ -41,8 +42,8 @@ function getChangeValue(event){
 class Category4Edit extends Component {
     constructor(props){
         super(props) ;
-        let  { match } = props ;
-        let id = '';
+        let id = getQueryString('id') ;
+        console.info('id : ' , id) ;
         this.state = {
             id,
             basicInfo:{

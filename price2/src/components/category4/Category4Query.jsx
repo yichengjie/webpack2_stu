@@ -39,11 +39,20 @@ class Category4Query extends Component{
         let url = contextPath + 'edit.html' ;
         window.location.href = url ;
     }
+
+    handleToModifyUI(id){
+
+        let contextPath = getContextPath() ;
+        let url = contextPath + 'edit.html?id='+id ;
+        window.location.href = url ;
+    }
+
     renderListItem(item,key){
         return (
             <div className="category-section-row mb20" key={key}>
                 <ListItemTitle id = {key} 
-                    onDelete={this.handleDeleteItem} />
+                    onDelete={this.handleDeleteItem} 
+                    onModify={this.handleToModifyUI}/>
                 <FlightInfoContainer 
                     flightList1 ={item.list1} 
                     flightList2 ={item.list2} 
@@ -95,10 +104,11 @@ function ListItemTitle (props){
             </span>
             <span className="ml20">CA/CZ/MU/HU</span>
             <span className="oper-section">
-                <Icon type="edit hand" />
+                <Icon type="edit hand" 
+                    onClick={e => props.onModify(id)} />
                 <Icon type="delete" 
-                    onClick={(e) => props.onDelete(id)}
-                    className="ml10 color-orange hand"/>
+                    onClick={e => props.onDelete(id)}
+                    className="ml10 hand"/>
             </span>
         </div>
     ) ;
