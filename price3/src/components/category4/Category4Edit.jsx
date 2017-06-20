@@ -1,9 +1,9 @@
 import  React,{Component} from 'react' ;
 import FlightInfoContainer from './FlightInfoContainer.jsx' ;
 import moment from 'moment';
-import {queryCategory4ById,getContextPath} from './api/CommonApi.js' ;
 import _ from 'lodash' ;
-import {getQueryString} from '../common.js' ;
+import {queryCategory4ById} from './api/CommonApi.js' ;
+import {getQueryString,dealProjectUrl} from '../common.js' ;
 
 import {Select,Input,Radio,Checkbox,Icon,Button,
     TimePicker,message,Tag} from 'antd';
@@ -179,8 +179,8 @@ class Category4Edit extends Component {
        this.setState({flightInfo:obj}) ;
     }
     handle2QueryUI(){
-        let contextPath = getContextPath() ;
-        let url = contextPath + 'index.html' ;
+        let url = 'index.html' ;
+        url = dealProjectUrl(url) ;
         window.location.href = url ;
     }
 

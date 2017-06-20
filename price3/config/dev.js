@@ -21,7 +21,7 @@ module.exports = function() {
             //其实很简单的，只要配置这个参数就可以了  
             proxy: {  
                 '/api/*': {  
-                    target: 'http://localhost:8080/',  
+                    target: 'http://'+ipAddress+':8080/',  
                     secure: false  
                 }  
             }  

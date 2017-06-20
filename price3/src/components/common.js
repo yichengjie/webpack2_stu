@@ -10,7 +10,16 @@ function __getQueryStringBySearchStr(name,searchStr) {
     return null; 
 }  
 
+function getContextPath(){
+    return '' ;
+}
+
+export function dealProjectUrl(url){
+    return getContextPath() + url ;
+}
+
 export default {
    getQueryString ,
+   dealProjectUrl
 } ;
 

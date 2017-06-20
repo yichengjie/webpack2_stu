@@ -1,7 +1,8 @@
 import React,{Component} from 'react' ;
 import {Button,Icon,notification} from 'antd';
 import FlightInfoContainer from './FlightInfoContainer.jsx' ;
-import {queryAllCategory4,getContextPath} from './api/CommonApi.js' ;
+import {queryAllCategory4} from './api/CommonApi.js' ;
+import {dealProjectUrl} from '../common.js' ;
 
 class Category4Query extends Component{
     constructor(props){
@@ -11,8 +12,7 @@ class Category4Query extends Component{
         }
     }
     async componentDidMount(){
-      let retData = await queryAllCategory4() ;
-      let {category4Data} = retData ;
+      let {category4Data} = await queryAllCategory4();
       this.setState({
           list:category4Data
       }) ;
@@ -35,15 +35,14 @@ class Category4Query extends Component{
     }
     //点击新建时
     hadleToNewAddUI(){
-        let contextPath = getContextPath() ;
-        let url = contextPath + 'edit.html' ;
+        let url = 'edit.html' ;
+        url = dealProjectUrl(url);
         window.location.href = url ;
     }
 
     handleToModifyUI(id){
-
-        let contextPath = getContextPath() ;
-        let url = contextPath + 'edit.html?id='+id ;
+        let url = 'edit.html?id='+id ;
+        url = dealProjectUrl(url);
         window.location.href = url ;
     }
 
