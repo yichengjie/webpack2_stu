@@ -14,7 +14,7 @@ module.exports = function(env) {
             port: 3000,
             //所有来自 dist/目录的文件都做 gzip 压缩和提供为服务
             compress:true,
-            host: 'localhost',
+            host:'172.27.49.59',
             contentBase: [path.resolve(__dirname, '../public')],  // New
         },
     })

@@ -10,7 +10,6 @@
     // 转译React组件为JS代码
   ],
   "plugins": [
-    "transform-runtime",
     "transform-class-properties",
     ["import",{ "libraryName": "antd"}]
   ]
