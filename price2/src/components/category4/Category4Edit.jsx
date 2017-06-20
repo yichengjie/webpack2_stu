@@ -1,7 +1,7 @@
 import  React,{Component} from 'react' ;
 import FlightInfoContainer from './FlightInfoContainer.jsx' ;
 import moment from 'moment';
-import {queryCategory4ById} from './api/CommonApi.js' ;
+import {queryCategory4ById,getContextPath} from './api/CommonApi.js' ;
 import _ from 'lodash' ;
 
 import {Select,Input,Radio,Checkbox,Icon,Button,
@@ -177,6 +177,11 @@ class Category4Edit extends Component {
        let obj = _.cloneDeep(this.state[name][index] );
        this.setState({flightInfo:obj}) ;
     }
+    handle2QueryUI(){
+        let contextPath = getContextPath() ;
+        let url = contextPath + 'index.html' ;
+        window.location.href = url ;
+    }
 
     render(){
         let {flightInfo} = this.state ;
@@ -187,7 +192,7 @@ class Category4Edit extends Component {
                <div className="category-section-row">
                     <Button type="primary" >保存</Button>
                     <Button className="mlr15">清空</Button>
-                    <Button>返回</Button>
+                    <Button onClick={this.handle2QueryUI}>返回</Button>
                </div>
                <CategorySection>基础信息</CategorySection>
                <div className="category-section-row">
