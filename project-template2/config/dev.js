@@ -1,6 +1,8 @@
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./base.js');
 let path = require('path') ;
+let ipAddress= require('./ip.js')() ;
+console.info('ipAddress : ' ,ipAddress) ;
 
 module.exports = function(env) {
     return webpackMerge(commonConfig(), {
@@ -14,7 +16,7 @@ module.exports = function(env) {
             port: 3000,
             //所有来自 dist/目录的文件都做 gzip 压缩和提供为服务
             compress:true,
-            host:'172.27.49.59',
+            host:ipAddress,
             contentBase: [path.resolve(__dirname, '../public')],  // New
         },
     })
