@@ -1,10 +1,10 @@
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./base.js');
 let path = require('path') ;
-let ipAddress= require('./ip.js')() ;
-console.info('ipAddress : ' ,ipAddress) ;
+let common = require('./common.js') ;
 
-module.exports = function(env) {
+module.exports = function() {
+   let ipAddress= common.getIPAdress() ;
     return webpackMerge(commonConfig(), {
         devtool: 'cheap-module-eval-source-map',
         output: {

@@ -4,7 +4,17 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 const commonConfig = require('./base.js');
 let path = require('path') ;
 let appPath = path.resolve(__dirname, '../') ;
-module.exports = function(env) {
+let common = require('./common.js') ;
+var distPath = path.join(__dirname, '../dist') ;
+var publicPath = path.join(__dirname, '../public') ;
+
+
+module.exports = function() {
+    //清空dist目录
+    common.deleteall(distPath) ;
+    //复制需要的文件到dist目录
+    common.copyAllFileToPath( publicPath, distPath);
+
     return webpackMerge(commonConfig(), {
         output: {
             path: path.resolve(__dirname, '../dist'),
