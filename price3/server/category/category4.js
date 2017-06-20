@@ -173,20 +173,20 @@ function getAllCategoryStaticData(){
     let categoryData = {
         "id1":{
             basicInfo:{
-                modelType:'2' , //(1)机型 [空:不限,1:适用,2:不适用]
-                modelCode:'123',  //(2)机型代码       
+                modelType:'1' , //(1)机型 [空:不限,1:适用,2:不适用]
+                modelCode:'747/777/M11/340',  //(2)机型代码       
                 codeShareFlightType:'2',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
-                codeShareFlightCode:'yicj',//(4)代码共享航班代码
+                codeShareFlightCode:'CA/CZ/MU/HU',//(4)代码共享航班代码
             },
             list1:list1,
             list2:list2,
         },
         "id2":{
             basicInfo:{
-                modelType:'2' , //(1)机型 [空:不限,1:适用,2:不适用]
-                modelCode:'123',  //(2)机型代码       
-                codeShareFlightType:'2',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
-                codeShareFlightCode:'yicj',//(4)代码共享航班代码
+                modelType:'' , //(1)机型 [空:不限,1:适用,2:不适用]
+                modelCode:'777/M11',  //(2)机型代码       
+                codeShareFlightType:'1',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
+                codeShareFlightCode:'CZ/MU',//(4)代码共享航班代码
             },
             list1:list1,
             list2:list2,
@@ -194,9 +194,9 @@ function getAllCategoryStaticData(){
         "id3":{
             basicInfo:{
                 modelType:'2' , //(1)机型 [空:不限,1:适用,2:不适用]
-                modelCode:'123',  //(2)机型代码       
-                codeShareFlightType:'2',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
-                codeShareFlightCode:'yicj',//(4)代码共享航班代码
+                modelCode:'777/M11/340',  //(2)机型代码       
+                codeShareFlightType:'',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
+                codeShareFlightCode:'MU/HU',//(4)代码共享航班代码
             },
             list1:list1,
             list2:list2,
@@ -204,9 +204,9 @@ function getAllCategoryStaticData(){
         "id4":{
             basicInfo:{
                 modelType:'2' , //(1)机型 [空:不限,1:适用,2:不适用]
-                modelCode:'123',  //(2)机型代码       
+                modelCode:'747/777/M11',  //(2)机型代码       
                 codeShareFlightType:'2',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
-                codeShareFlightCode:'yicj',//(4)代码共享航班代码
+                codeShareFlightCode:'CA/CZ',//(4)代码共享航班代码
             },
             list1:list1,
             list2:[],

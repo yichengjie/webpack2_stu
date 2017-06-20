@@ -3,6 +3,8 @@ import {Icon} from 'antd' ;
 import classNames from 'classnames' ;
 import Ellipsis from '../Ellipsis.jsx' ;
 import PropTypes from 'prop-types' ;
+import {joinArr2Str} from '../common.js' ;
+import {FlightInfoMap} from './other/common.js' ;
 
 let tdWidthArr = [70,120,170,80,100,200,60] ;
 
@@ -11,6 +13,20 @@ function getItemWidth(index,showOperBtn,unit){
     let t = showOperBtn ? w : (w + 10) ;
     t = unit ? (t + 'px') : t ;
     return {width:t} ;
+}
+
+export function getFlightNoIconByValue(flightNoType){
+    if(flightNoType === '1'){
+        return (<Icon type="check-square-o" 
+                    className="mr5 color-success" />) ;
+    }else if(flightNoType === '2'){
+        return (
+            <Icon type="close-square-o" 
+                className="mr5 color-orange" />
+        ) ;
+    }else{
+        return null ;
+    }
 }
 
 class FlightInfoContainer extends PureComponent{
@@ -79,49 +95,6 @@ class FlightInfoContainer extends PureComponent{
         ) ;
     }
     
-}
-
-
-let FlightInfoMap = {
-   flightPlanApplyType:{
-     '':'正班/加班',
-     '1':'正班',
-     '2':'加班'
-   },
-   flightNoType :{
-       '':'不限',
-       '1':'仅适用',
-       '2':'不适用'
-   },
-   flightApplyRangeType :{
-       '':'不限',
-       '1':'第一段',
-       '2':'第二段',
-       '3':'第三段',
-       '4':'第四段',
-       '5':'第五段',
-       '6':'第六段',
-       '7':'第七段',
-       '8':'末段'
-   },
-   getTypeShowStr(item,name){
-       if(item == null){
-          return '' ;
-       }
-       let realValue = item[name] ;
-       if(realValue == null){
-           return '' ;
-       }
-       let showStr = FlightInfoMap[name][realValue] ;
-       return showStr ;
-    }
-} ;
-
-function joinArr2Str(arr,splitStr){
-    if(arr == null || arr.length == 0){
-        return '' ;
-    }
-    return arr.join(splitStr ? splitStr : ',') ;
 }
 
 function getTimeRangeListStr(timeRangeList){
@@ -193,20 +166,20 @@ class FlightInfo extends PureComponent{
         }.bind(this) ;
     }
 
-    renderFlightNoIcon(item){
-        let {flightNoType} = item ;
-        if(flightNoType === '1'){
-            return (<Icon type="check-square-o" 
-                className="mr5 color-success" />) ;
-        }else if(flightNoType === '2'){
-            return (
-                <Icon type="close-square-o" 
-                    className="mr5 color-orange"/>
-            ) ;
-        }else{
-            return null ;
-        }
-    }
+    // renderFlightNoIcon(item){
+    //     let {flightNoType} = item ;
+    //     if(flightNoType === '1'){
+    //         return (<Icon type="check-square-o" 
+    //             className="mr5 color-success" />) ;
+    //     }else if(flightNoType === '2'){
+    //         return (
+    //             <Icon type="close-square-o" 
+    //                 className="mr5 color-orange"/>
+    //         ) ;
+    //     }else{
+    //         return null ;
+    //     }
+    // }
 
     handleDeleteOprFactory(index){
         let {name} = this.props ;
@@ -252,7 +225,7 @@ class FlightInfo extends PureComponent{
                 <td {...getItemWidth(0,showOperBtn,false)}>{index + 1}</td>
                 <td {...getItemWidth(1,showOperBtn,false)}>{itemShowObj.flightPlanApplyType}</td>
                 <td {...getItemWidth(2,showOperBtn,false)}>
-                    {this.renderFlightNoIcon(item)}
+                    {getFlightNoIconByValue(item.flightNoType)} 
                     {itemShowObj.flightNoType + ' ' + 
                      itemShowObj.flightNoCodeStart + '-' +  
                      itemShowObj.flightNoCodeEnd
@@ -347,5 +320,8 @@ class FlightInfo extends PureComponent{
         ) ;
     }
 }
+
+
+
 
 export default FlightInfoContainer ;

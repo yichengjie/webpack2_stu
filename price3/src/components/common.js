@@ -18,8 +18,16 @@ export function dealProjectUrl(url){
     return getContextPath() + url ;
 }
 
+export function joinArr2Str(arr,splitStr){
+    if(arr == null || arr.length == 0){
+        return '' ;
+    }
+    return arr.join(splitStr ? splitStr : ',') ;
+}
+
 export default {
    getQueryString ,
-   dealProjectUrl
+   dealProjectUrl,
+   joinArr2Str
 } ;
 

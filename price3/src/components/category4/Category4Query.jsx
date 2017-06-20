@@ -1,8 +1,9 @@
 import React,{Component} from 'react' ;
 import {Button,Icon,notification} from 'antd';
-import FlightInfoContainer from './FlightInfoContainer.jsx' ;
+import FlightInfoContainer,{getFlightNoIconByValue} from './FlightInfoContainer.jsx' ;
 import {queryAllCategory4} from './api/CommonApi.js' ;
 import {dealProjectUrl} from '../common.js' ;
+import {FlightInfoMap} from './other/common.js' ; 
 
 class Category4Query extends Component{
     constructor(props){
@@ -21,9 +22,10 @@ class Category4Query extends Component{
     renderList(){
         let list = this.state.list ;
         let keys = Object.keys(list) ;
-        return keys.map(function(key){
+        let count = keys.length ;
+        return keys.map(function(key,index){
             let item = list[key] ;
-            return this.renderListItem(item,key) ;
+            return this.renderListItem(item,key,index,count) ;
         }.bind(this)) ;
     }
     handleDeleteItem = (id) => {
@@ -46,10 +48,14 @@ class Category4Query extends Component{
         window.location.href = url ;
     }
 
-    renderListItem(item,key){
+    renderListItem(item,key,index,count){
         return (
             <div className="category-section-row mb20" key={key}>
-                <ListItemTitle id = {key} 
+                <ListItemTitle 
+                    id={key}
+                    index={index}
+                    count={count}
+                    basicInfo={item.basicInfo}
                     onDelete={this.handleDeleteItem} 
                     onModify={this.handleToModifyUI}/>
                 <FlightInfoContainer 
@@ -72,36 +78,37 @@ class Category4Query extends Component{
     }
 }
 
-function getFlightNoIcon(flightNoType){
-    if(flightNoType === '1'){
-        return (<Icon type="check-square-o" 
-                    className="mr5 color-success" />) ;
-    }else if(flightNoType === '2'){
-        return (
-            <Icon type="close-square-o" 
-                className="mr5 color-orange" />
-        ) ;
-    }else{
-        return null ;
-    }
-}
 
+
+
+
+/**
+ * 列表项显示
+ * @param {*} props 
+ * item:{
+ *   modelType:'2' , //(1)机型 [空:不限,1:适用,2:不适用]
+ *   modelCode:'123',  //(2)机型代码       
+ *   codeShareFlightType:'2',//(3)代码共享航班类型 [空:可适用,1:不适用,2:仅适用]
+ *   codeShareFlightCode:'yicj',//(4)代码共享航班代码
+ * }
+ */
 function ListItemTitle (props){
-    let {id} = props ;
+    let {id,basicInfo,index,count} = props ;
     return (
         <div className="category-flight-info-descr">
-            <span className="mlr20">1/15</span>
+            <span className="mlr20">{(index + 1) + '/' + count }</span>
             <span className="mlr20"></span>
             <span className="mlr20">机型:</span>
-            <span >{getFlightNoIcon('2')} 不适用</span>
-            <span className="mlr20">747/777/M11/340 </span>
+            <span >{getFlightNoIconByValue(basicInfo.modelType)} </span>
+            <span>{FlightInfoMap.getTypeShowStr(basicInfo,'modelType')}</span>
+            <span className="mlr20">{basicInfo.modelCode} </span>
             <span className="mlr20"></span>
             <span className="ml20">代码共享航班:</span>
             <span className="ml15">
-                {getFlightNoIcon('1')}
-                仅适用
+                {getFlightNoIconByValue(basicInfo.codeShareFlightType)}
             </span>
-            <span className="ml20">CA/CZ/MU/HU</span>
+            <span>{FlightInfoMap.getTypeShowStr(basicInfo,'codeShareFlightType')}</span>
+            <span className="ml20">{basicInfo.codeShareFlightCode}</span>
             <span className="oper-section">
                 <Icon type="edit hand" 
                     onClick={e => props.onModify(id)} />
