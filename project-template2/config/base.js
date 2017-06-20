@@ -45,7 +45,7 @@ module.exports = function() {
           inject:'body',
           hash:true,
           chunks:['index','vendor']   // 这个模板对应上面那个节点
-        })
+        }),
       ],
     };
 } 
