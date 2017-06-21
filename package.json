@@ -36,13 +36,13 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "style-loader": "^0.18.2",
-    "webpack": "^2.6.1",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "2",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "antd": "^2.11.0",
+    "antd": "^2.11.1",
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",

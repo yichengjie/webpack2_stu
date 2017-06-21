@@ -6,7 +6,7 @@ import {queryCategory4ById} from './api/CommonApi.js' ;
 import {getQueryString,dealProjectUrl} from '../common.js' ;
 
 import {Select,Input,Radio,Checkbox,Icon,Button,
-    TimePicker,message,Tag} from 'antd';
+    TimePicker,message} from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button;
