@@ -4,6 +4,7 @@ import FlightInfoContainer,{getFlightNoIconByValue} from './FlightInfoContainer.
 import {queryAllCategory4} from './api/CommonApi.js' ;
 import {dealProjectUrl} from '../common.js' ;
 import {FlightInfoMap} from './other/common.js' ; 
+import Siderbar from '../Siderbar.jsx' ;
 
 class Category4Query extends Component{
     constructor(props){
@@ -70,7 +71,9 @@ class Category4Query extends Component{
         return (
             <div className="category-container">
                 <div className="category-section-row">
-                    <Button type="primary" onClick={this.hadleToNewAddUI}>新建</Button>
+                    <Button type="primary" onClick={this.hadleToNewAddUI}>
+                        新建
+                    </Button>
                 </div>
                 {this.renderList()}
             </div>
@@ -121,6 +124,14 @@ function ListItemTitle (props){
 }
 
 
+function Category4QueryApp (){
+    return (
+        <Siderbar current='rule-category' openKeys ={['rule']}>
+            <Category4Query />
+        </Siderbar>
+    ) ;
+}
 
-export default Category4Query ;
+
+export default Category4QueryApp ;
 

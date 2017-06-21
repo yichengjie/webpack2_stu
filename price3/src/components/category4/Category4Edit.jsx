@@ -4,6 +4,7 @@ import moment from 'moment';
 import _ from 'lodash' ;
 import {queryCategory4ById} from './api/CommonApi.js' ;
 import {getQueryString,dealProjectUrl} from '../common.js' ;
+import Siderbar from '../Siderbar.jsx' ;
 
 import {Select,Input,Radio,Checkbox,Icon,Button,
     TimePicker,message} from 'antd';
@@ -301,7 +302,7 @@ class Category4Edit extends Component {
         )
     }
 }
-export default Category4Edit ;
+
 
 
 function getFormatDateStr(str){
@@ -391,3 +392,14 @@ class ApplyTimeRangeItem extends Component{
         ) ;
     }
 }
+
+
+function Category4EditApp(){
+    return (
+        <Siderbar current='rule-category' openKeys ={['rule']}>
+            <Category4Edit />
+        </Siderbar>
+    ) ;
+}
+
+export default Category4EditApp ;

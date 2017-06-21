@@ -165,21 +165,7 @@ class FlightInfo extends PureComponent{
             }.bind(this)) ;
         }.bind(this) ;
     }
-
-    // renderFlightNoIcon(item){
-    //     let {flightNoType} = item ;
-    //     if(flightNoType === '1'){
-    //         return (<Icon type="check-square-o" 
-    //             className="mr5 color-success" />) ;
-    //     }else if(flightNoType === '2'){
-    //         return (
-    //             <Icon type="close-square-o" 
-    //                 className="mr5 color-orange"/>
-    //         ) ;
-    //     }else{
-    //         return null ;
-    //     }
-    // }
+    
 
     handleDeleteOprFactory(index){
         let {name} = this.props ;
