@@ -8,5 +8,7 @@
         "build": "../node_modules/.bin/webpack --env=prod --progress --profile --colors",
         "dev": "../node_modules/.bin/webpack-dev-server --env=dev --progress --profile --colors",
         "dev2": "../node_modules/.bin/webpack-dev-server --env=dev --progress --profile --colors --open"
+    },
+    "jest": {
     }
 }
