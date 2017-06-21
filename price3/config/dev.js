@@ -1,8 +1,11 @@
 const webpackMerge = require('webpack-merge');
+const webpack = require('webpack') ;
+const OpenBrowserPlugin = require('open-browser-webpack-plugin'); // 编译后自动打开浏览器
 const commonConfig = require('./base.js');
 let path = require('path') ;
 let common = require('./common.js') ;
 let localIPAddress = common.getIPAdress() ;
+let localPort = 3000 ;
 let serverIPAddress = localIPAddress;
 
 module.exports = function() {
@@ -14,7 +17,7 @@ module.exports = function() {
             sourceMapFilename: '[name].map'
         },
         devServer: {
-            port: 3000,
+            port: localPort,
             //所有来自 dist/目录的文件都做 gzip 压缩和提供为服务
             compress:true,
             host:localIPAddress,
@@ -27,5 +30,15 @@ module.exports = function() {
                 }  
             }  
         },
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: JSON.stringify('development') //定义生产环境
+                }
+            }),
+            new OpenBrowserPlugin({
+                url: 'http://'+localIPAddress+':'+localPort+'/#/',
+            }),
+        ]
     })
 }
