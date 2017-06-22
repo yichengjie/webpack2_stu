@@ -35,7 +35,7 @@ module.exports = function() {
             }),
             new webpack.optimize.UglifyJsPlugin({
                 comments: false
-            })
+            }),
         ]
     })
 }

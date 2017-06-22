@@ -5,7 +5,10 @@ var port = 8080 ;
 var CategoryService = require('./category/category4.js') ;
 
 let distPath = path.resolve(__dirname,'../dist') ;
+let jspPath = path.resolve(__dirname,'../jsp') ;
+
 app.use(express.static(distPath));
+app.use(express.static(jspPath));
 
 
 //getAllCategoryStaticData 

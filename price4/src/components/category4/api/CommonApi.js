@@ -1,4 +1,4 @@
-let axios = require('axios') ;
+//let axios = require('axios') ;
 import commom from '../../common.js' ;
 
 //查询category4数据

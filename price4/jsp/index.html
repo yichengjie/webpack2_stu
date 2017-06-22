@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EasyFare</title>
     <link rel="stylesheet" href="antd/antd.min.css">
-</head>
 <body>
     <script  type="text/javascript" src="babel-polyfill/polyfill.min.js"></script>
-    <script  type="text/javascript" src="axios/axios.min.js"></script>
-</body>
+    <script type="text/javascript" src="axios/axios.min.js"></script>
+    <script type="text/javascript" src="load.js"></script>
+    <script type="text/javascript"> 
+        window.onload = createDynamicLoadPageResoureFn('index') ;
+    </script>
 </html>

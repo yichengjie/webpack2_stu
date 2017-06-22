@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function() {
@@ -48,20 +47,6 @@ module.exports = function() {
         new ExtractTextPlugin({
           filename:"style.[contenthash:16].css"
         }),
-        new HtmlWebpackPlugin({
-          template: './index.html',
-          filename:'index.html',
-          inject:'body',
-          hash:true,
-          chunks:['index','vendor']   // 这个模板对应上面那个节点
-        }),
-        new HtmlWebpackPlugin({
-          template: './index.html',
-          filename:'edit.html',
-          inject:'body',
-          hash:true,
-          chunks:['edit','vendor']   // 这个模板对应上面那个节点
-        })
       ],
     };
 } 
