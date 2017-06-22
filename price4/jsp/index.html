@@ -11,6 +11,8 @@
     <script type="text/javascript" src="axios/axios.min.js"></script>
     <script type="text/javascript" src="load.js"></script>
     <script type="text/javascript"> 
-        window.onload = createDynamicLoadPageResoureFn('index') ;
+        window.onload = function (){
+            new DynamicLoadPageResoure('index') ;
+        } 
     </script>
 </html>

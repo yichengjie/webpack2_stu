@@ -40,13 +40,13 @@ module.exports = function() {
             }),
             new webpack.HotModuleReplacementPlugin(), // Enable HMR
             new HtmlWebpackPlugin({
-                template: './index.html',
+                template: './template.html',
                 filename:'index.html',
                 inject:'body',
                 chunks:['index','vendor']   // 这个模板对应上面那个节点
             }),
             new HtmlWebpackPlugin({
-                template: './index.html',
+                template: './template.html',
                 filename:'edit.html',
                 inject:'body',
                 chunks:['edit','vendor']   // 这个模板对应上面那个节点

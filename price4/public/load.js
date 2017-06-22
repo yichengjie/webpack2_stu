@@ -1,9 +1,9 @@
-(function(){
-    function createDynamicLoadPageResoureFn(entryName){
-        return function(){
-            new DynamicLoadPageResoure(entryName) ;
-        } ;
-    }
+;(function(window,undefined){
+    // function createDynamicLoadPageResoureFn(entryName){
+    //     return function(){
+    //         new DynamicLoadPageResoure(entryName) ;
+    //     } ;
+    // }
 
     function DynamicLoadPageResoure(entryName){
         this.entryName = entryName ;
@@ -66,7 +66,7 @@
     }
 
     function addScriptToBody(src,callback){
-        let script = document.createElement('script') ;
+        var script = document.createElement('script') ;
         script.type= 'text/javascript'; 
         script.src= src; 
         if(callback != null){
@@ -75,7 +75,8 @@
         document.body.appendChild(script); 
     }
 
-    window.createDynamicLoadPageResoureFn = createDynamicLoadPageResoureFn ;
+    window.DynamicLoadPageResoure = DynamicLoadPageResoure ;
+
 })(window,undefined) ;
 
 

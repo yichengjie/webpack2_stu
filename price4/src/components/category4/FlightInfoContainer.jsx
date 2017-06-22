@@ -188,7 +188,7 @@ class FlightInfo extends PureComponent{
         }
         return (
             <td {...getItemWidth(6,showOperBtn,false)}>
-                <Icon type="delete" className="oper-icon mr10 color-orange"  
+                <Icon type="delete" className="oper-icon mr10"  
                     onClick={this.handleDeleteOprFactory(index)} />
                 <Icon type="edit" className="oper-icon"
                     onClick ={this.handleModifyOperFactory(index)}/>
